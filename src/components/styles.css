@@ -527,7 +527,7 @@ h1, h2, h3 {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
 .project-card{
   display: block;
   width: 80%;
