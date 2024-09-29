@@ -1,46 +1,64 @@
+// assistance.js
 
-    let a = "Hello Im virtual asistance im create by musa sir i can asist you to analyize his portfolio and give you a summary of his projects and also can give you his detail"
-  
-    const speak = (message) => {
-      let text = new SpeechSynthesisUtterance(message)
-      text.rate = 1
-      text.pitch = 1
-      text.volume = 1
-      text.lang = "hi-GB"
-      window.speechSynthesis.speak(text)
-    }
-  
-    export const wishMe = () => {
-      let day = new Date()
-      let hours = day.getHours()
-      if (hours >= 5 && hours < 12) {
-        speak("Good morning sir")
-      }
-      else if (hours >= 12 && hours < 16) {
-        speak("Good afternoon sir")
-      }
-      else if (hours >= 16 && hours < 18) {
-        speak("Good evening sir")
-      }
-      else {
-        speak("Hellow nice to meet you sir")
-      }
-    }
-  
-    export const listen = () => {
-      let VoiceRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      let recognition = new VoiceRecognition();
-  
-      recognition.onresult = (event) => {
-        console.log(event)
-  
-        const transcript = event.results[0][0].transcript;
-        let question = transcript.toLowerCase()
-        answers(question)
-      };
-  
-      recognition.start();
-    };
+let a = "Hello! I'm a virtual assistant created by Musa Sir. I can assist you with analyzing his portfolio and provide summaries of his projects, as well as details about him.";
+
+// Function to make the assistant speak
+const speak = (message) => {
+  let text = new SpeechSynthesisUtterance(message);
+  text.rate = 1;
+  text.pitch = 1;
+  text.volume = 1;
+  text.lang = "hi-GB";  // Change language if needed
+  window.speechSynthesis.speak(text);
+};
+
+// Function to greet the user based on the time of day
+export const wishMe = () => {
+  let day = new Date();
+  let hours = day.getHours();
+  let greeting = "";
+
+  if (hours >= 5 && hours < 12) {
+    greeting = "Good morning sir";
+  } else if (hours >= 12 && hours < 16) {
+    greeting = "Good afternoon sir";
+  } else if (hours >= 16 && hours < 18) {
+    greeting = "Good evening sir";
+  } else {
+    greeting = "Hello, nice to meet you sir";
+  }
+
+  // Try auto-speaking first
+  try {
+    
+   speak(greeting);
+
+    // console.log("Auto-speak failed. Falling back to user click.");
+    // // Fallback: Listen for the first user interaction (click)
+    // window.addEventListener('mousemove', () => speak(greeting), { once: true });
+    // 
+  } catch (e) {
+
+    setTimeout(() => {
+      speak(greeting)
+    }, 10);
+   
+  }
+};
+
+// Listening to the user's voice command
+export const listen = () => {
+  let VoiceRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  let recognition = new VoiceRecognition();
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    let question = transcript.toLowerCase();
+    answers(question);
+  };
+
+  recognition.start();
+};
   
     export const answers = (question) => {
       let reply;

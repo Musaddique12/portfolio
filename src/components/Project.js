@@ -20,8 +20,8 @@ function Project() {
         {
           name: 'Portfolio',
           description: 'Another project with React and Firebase.',
-          link: 'https://github.com/yourusername/project2',
-          code:"",
+          link: 'https://portfolio-ashy-five-85.vercel.app',
+          code:"https://github.com/Musaddique12/portfolio",
         },
         {
             name: 'Invoice Builder',
