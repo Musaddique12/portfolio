@@ -530,7 +530,7 @@ h1, h2, h3 {
 @media (max-width: 480px) {
 .project-card{
   display: block;
-  gap:10px
+  width: 63%;
 }
 }
 
