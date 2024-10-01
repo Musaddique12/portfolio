@@ -39,9 +39,7 @@ export const wishMe = () => {
     // 
   } catch (e) {
 
-    setTimeout(() => {
-      speak(greeting)
-    }, 1000);
+    window.addEventListener('mousemove', () => speak(greeting), { once: true });
    
   }
 };
