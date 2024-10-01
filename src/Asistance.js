@@ -1,4 +1,6 @@
 // assistance.js
+import Swal from 'sweetalert2';
+
 
 let a = "Hello! I'm a virtual assistant created by Musa Sir. I can assist you with analyzing his portfolio and provide summaries of his projects, as well as details about him.";
 
@@ -30,17 +32,35 @@ export const wishMe = () => {
 
   // Try auto-speaking first
   try {
-    
-   speak(greeting);
+    // speak(greeting);
 
-    // console.log("Auto-speak failed. Falling back to user click.");
-    // // Fallback: Listen for the first user interaction (click)
-    // window.addEventListener('mousemove', () => speak(greeting), { once: true });
-    // 
-  } catch (e) {
-
-    window.addEventListener('mousemove', () => speak(greeting), { once: true });
-   
+    Swal.fire({
+      title: 'Oops!',
+      text: "Auto-speak isn't available due to browser compatibility issues. Please click the assistance button for manual interaction.",
+      icon: 'info',
+      confirmButtonText: 'Got it!',
+      footer: '<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis">Learn more about Speech Synthesis</a>',
+      background: '#f7f7f7',
+      customClass: {
+        title: 'swal2-title',
+        popup: 'swal2-popup'
+      }
+    });
+  }
+  catch (e) {
+    // Display an attractive popup message when auto-speak fails
+    Swal.fire({
+      title: 'Oops!',
+      text: "It seems the speech functionality isn't supported in your browser.",
+      icon: 'error',
+      confirmButtonText: 'Got it!',
+      footer: '<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis">Learn more about Speech Synthesis</a>',
+      background: '#f7f7f7',
+      customClass: {
+        title: 'swal2-title',
+        popup: 'swal2-popup'
+      }
+    });
   }
 };
 
