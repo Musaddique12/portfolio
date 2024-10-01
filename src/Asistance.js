@@ -41,7 +41,7 @@ export const wishMe = () => {
 
     setTimeout(() => {
       speak(greeting)
-    }, 10);
+    }, 1000);
    
   }
 };
