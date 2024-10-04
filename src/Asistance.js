@@ -32,20 +32,7 @@ export const wishMe = () => {
 
   // Try auto-speaking first
   try {
-    // speak(greeting);
-
-    Swal.fire({
-      title: 'Oops!',
-      text: "Auto-speak isn't available due to browser compatibility issues. Please click the assistance button for manual interaction.",
-      icon: 'info',
-      confirmButtonText: 'Got it!',
-      footer: '<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis">Learn more about Speech Synthesis</a>',
-      background: '#f7f7f7',
-      customClass: {
-        title: 'swal2-title',
-        popup: 'swal2-popup'
-      }
-    });
+    speak(greeting);
   }
   catch (e) {
     // Display an attractive popup message when auto-speak fails

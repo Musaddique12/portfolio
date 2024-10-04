@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Link as Scroll } from 'react-scroll';
 
-
 const Navbar = (page) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -16,19 +19,49 @@ const Navbar = (page) => {
         <h1 className="logo">My Portfolio</h1>
         <ul className={`nav-links ${isOpen ? 'nav-active' : ''}`}>
           <li>
-            <Scroll to="/"  smooth={true} duration={500}>Home</Scroll>
+            <Scroll 
+              to="home" 
+              smooth={true} 
+              duration={500} 
+              onClick={closeMenu}
+            >
+              Home
+            </Scroll>
           </li>
           <li>
-            <Scroll to="about-me"  smooth={true} duration={500}>About Me</Scroll>
+            <Scroll 
+              to="about-me" 
+              smooth={true} 
+              duration={500} 
+              onClick={closeMenu}
+            >
+              About Me
+            </Scroll>
           </li>
           <li>
-            <Scroll to="skills"  smooth={true} duration={500}>Skills</Scroll>
+            <Scroll 
+              to="skills" 
+              smooth={true} 
+              duration={500} 
+              onClick={closeMenu}
+            >
+              Skills
+            </Scroll>
           </li>
           <li>
-            <Link to="/project">Projects</Link>
+            <Link to="/project" onClick={closeMenu}>
+              Projects
+            </Link>
           </li>
           <li>
-            <Scroll to="contact"  smooth={true} duration={500}>Contact</Scroll>
+            <Scroll 
+              to="contact" 
+              smooth={true} 
+              duration={500} 
+              onClick={closeMenu}
+            >
+              Contact
+            </Scroll>
           </li>
         </ul>
         <div className="burger" onClick={toggleMenu}>
