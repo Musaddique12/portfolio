@@ -20,30 +20,33 @@ const Navbar = (page) => {
         <ul className={`nav-links ${isOpen ? 'nav-active' : ''}`}>
           <li>
             <Scroll 
+            onClick={closeMenu}
               to="home" 
               smooth={true} 
               duration={500} 
-              onClick={closeMenu}
+              
             >
               Home
             </Scroll>
           </li>
           <li>
             <Scroll 
+            onClick={closeMenu}
               to="about-me" 
               smooth={true} 
               duration={500} 
-              onClick={closeMenu}
+              
             >
               About Me
             </Scroll>
           </li>
           <li>
             <Scroll 
+            onClick={closeMenu}
               to="skills" 
               smooth={true} 
               duration={500} 
-              onClick={closeMenu}
+              
             >
               Skills
             </Scroll>
