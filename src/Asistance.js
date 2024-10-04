@@ -31,14 +31,25 @@ export const wishMe = () => {
   }
 
   // Try auto-speaking first
-  if ('speechSynthesis' in window) {
-   speak(greeting)
+  if (!('speechSynthesis' in window)) {
+    Swal.fire({
+      title: 'Error!',
+      text: "Your browser does not support the Speech Synthesis API. Please click the 'Assistance' button to interact manually.",
+      icon: 'error',
+      confirmButtonText: 'Got it!',
+      background: '#f7f7f7',
+      customClass: {
+        title: 'swal2-title',
+        popup: 'swal2-popup'
+      }
+    });
   }
   else{
-     Swal.fire({
-      title: 'Error!',
-      text: "Sorry, your browser does not support the Speech Synthesis API.",
-      icon: 'error',
+    speak(greeting)
+    Swal.fire({
+      title: 'Information',
+      text: "Your browser does not support the Speech Synthesis API. Please click the 'Assistance' button to interact manually.",
+      icon: 'info',
       confirmButtonText: 'Got it!',
       background: '#f7f7f7',
       customClass: {
