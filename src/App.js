@@ -35,7 +35,7 @@ function App() {
     const contactSection = document.querySelector('.contact');
 
     if (aboutSection) {
-      setShowAboutAnimation(aboutSection.getBoundingClientRect().top >= 0 && aboutSection.getBoundingClientRect().bottom <= (window.innerHeight + 200));
+      setShowAboutAnimation(aboutSection.getBoundingClientRect().top >= 0 && aboutSection.getBoundingClientRect().bottom <= (window.innerHeight));
     }
 
     if (skillsSection) {

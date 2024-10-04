@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Link as Scroll } from 'react-scroll';
 
-const Navbar = (page) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -19,50 +19,25 @@ const Navbar = (page) => {
         <h1 className="logo">My Portfolio</h1>
         <ul className={`nav-links ${isOpen ? 'nav-active' : ''}`}>
           <li>
-            <Scroll 
-            onClick={closeMenu}
-              to="home" 
-              smooth={true} 
-              duration={500} 
-              
-            >
+            <Scroll to="/" smooth={true} duration={500} offset={-70} onClick={closeMenu}>
               Home
             </Scroll>
           </li>
           <li>
-            <Scroll 
-            onClick={closeMenu}
-              to="about-me" 
-              smooth={true} 
-              duration={500} 
-              
-            >
+            <Scroll to="about-me" smooth={true} duration={500} offset={-70} onClick={closeMenu}>
               About Me
             </Scroll>
           </li>
           <li>
-            <Scroll 
-            onClick={closeMenu}
-              to="skills" 
-              smooth={true} 
-              duration={500} 
-              
-            >
+            <Scroll to="skills" smooth={true} duration={500} offset={-70} onClick={closeMenu}>
               Skills
             </Scroll>
           </li>
           <li>
-            <Link to="/project" onClick={closeMenu}>
-              Projects
-            </Link>
+            <Link to="/project" onClick={closeMenu}>Projects</Link>
           </li>
           <li>
-            <Scroll 
-              to="contact" 
-              smooth={true} 
-              duration={500} 
-              onClick={closeMenu}
-            >
+            <Scroll to="contact" smooth={true} duration={500} offset={-70} onClick={closeMenu}>
               Contact
             </Scroll>
           </li>
