@@ -37,18 +37,21 @@ function Project() {
           description: 'This is a project using React and Firebase.',
           link: 'https://quiz-ruby-delta.vercel.app',
           code: "https://github.com/Musaddique12/Quiz",
+          exist:true,
         },
         {
           name: 'Portfolio',
           description: 'Another project with React and Firebase.',
           link: 'https://portfolio-ashy-five-85.vercel.app',
           code: "https://github.com/Musaddique12/portfolio",
+          exist:true,
         },
         {
           name: 'Invoice Builder',
           description: 'Another project with React and Firebase.',
           link: 'https://invoice-builder-zeta.vercel.app',
           code: "https://github.com/Musaddique12/invoice-builder",
+          exist:true,
         },
       ],
     },
@@ -61,6 +64,7 @@ function Project() {
           description: 'This is a project built with the MERN stack.',
           link: 'https://ai-page.vercel.app',
           code: "https://github.com/Musaddique12/Gemini",
+          exist:true,
         },
         {
           name: 'Vlog',
@@ -140,12 +144,12 @@ function Project() {
                     <FaGithub /> View Code
                   </Link>
                 )}
-                <button
+               {project.exist && <button
                   className="summary-button"
                   onClick={() => handleSummary(project.name)}
                 >
                   {speakingProject === project.name ? 'Stop' : 'Summary'}
-                </button>
+                </button>}
               </div>
             ))}
           </div>

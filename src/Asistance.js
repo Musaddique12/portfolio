@@ -31,17 +31,15 @@ export const wishMe = () => {
   }
 
   // Try auto-speaking first
-  try {
-    speak(greeting);
+  if ('speechSynthesis' in window) {
+   speak(greeting)
   }
-  catch (e) {
-    // Display an attractive popup message when auto-speak fails
-    Swal.fire({
-      title: 'Oops!',
-      text: "It seems the speech functionality isn't supported in your browser.",
+  else{
+     Swal.fire({
+      title: 'Error!',
+      text: "Sorry, your browser does not support the Speech Synthesis API.",
       icon: 'error',
       confirmButtonText: 'Got it!',
-      footer: '<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis">Learn more about Speech Synthesis</a>',
       background: '#f7f7f7',
       customClass: {
         title: 'swal2-title',
@@ -49,6 +47,7 @@ export const wishMe = () => {
       }
     });
   }
+
 };
 
 // Listening to the user's voice command
@@ -109,6 +108,11 @@ export const listen = () => {
   
       else if ((question.includes("analize") || question.includes("summary") || question.includes("summerize")) && (question.includes("ai board"))) {
         reply = "AI Page is a MERN stack project that allows users to interact with AI models by submitting queries and receiving spoken answers. The application features a user-friendly interface that enhances accessibility and engagement. It includes tools for efficiently generating and vocalizing responses, making it a valuable resource for users seeking interactive AI solutions.."
+      }
+
+      
+      else if ((question.includes("analize") || question.includes("summary") || question.includes("summerize")) && (question.includes("portfolio"))) {
+        reply = "The portfolio showcases various projects developed by the creator, emphasizing their skills in web development and design. It features sections detailing individual projects, including descriptions, technologies used, and links to live demos and source code. The design is clean and modern, highlighting the creator's expertise in React and Firebase, with an overall focus on user experience and aesthetic appeal."
       }
   
       //Skills
