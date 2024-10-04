@@ -19,17 +19,17 @@ const Navbar = () => {
         <h1 className="logo">My Portfolio</h1>
         <ul className={`nav-links ${isOpen ? 'nav-active' : ''}`}>
           <li>
-            <Scroll to="/" smooth={true} duration={500} offset={-70} onClick={closeMenu}>
+            <Scroll to="/" smooth={true} duration={600} offset={-70} onClick={closeMenu}>
               Home
             </Scroll>
           </li>
           <li>
-            <Scroll to="about-me" smooth={true} duration={500} offset={-70} onClick={closeMenu}>
+            <Scroll to="about-me" smooth={true} duration={600} offset={-70} onClick={closeMenu}>
               About Me
             </Scroll>
           </li>
           <li>
-            <Scroll to="skills" smooth={true} duration={500} offset={-70} onClick={closeMenu}>
+            <Scroll to="skills" smooth={true} duration={600} offset={-70} onClick={closeMenu}>
               Skills
             </Scroll>
           </li>
@@ -37,7 +37,7 @@ const Navbar = () => {
             <Link to="/project" onClick={closeMenu}>Projects</Link>
           </li>
           <li>
-            <Scroll to="contact" smooth={true} duration={500} offset={-70} onClick={closeMenu}>
+            <Scroll to="contact" smooth={true} duration={600} offset={-70} onClick={closeMenu}>
               Contact
             </Scroll>
           </li>
